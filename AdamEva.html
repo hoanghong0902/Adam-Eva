@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Human = function(name, gender, weight){
+            this.name = name;
+            this.gender = gender; 
+            this.weight = weight;
+            this.getName = function(){
+                return name;
+            }
+            this.getGender = function(){
+                return gender;
+            }
+            this.getWeight = function(){
+                return weight;
+            }
+            this.setName = function(name){
+                this.name = name;
+            }
+            this.setGender = function(gender){
+                this.gender = gender;
+            }
+            this.setWeight = function(weight){
+                this.weight = weight;
+            }
+            this.setSay = function(message){
+                return message;
+            }
+            this.setEat = function(weightApple, piece){
+                if (weightApple > 0){
+                    this.weight += piece;
+                }
+                return this.weight;
+            }
+        }
+        let Apple = function(weightApple){
+            this.weightApple = weightApple;
+            this.decrease = function(piece){
+                this.weightApple -= piece;
+                return this.weightApple;
+            }
+            this.setWeightApple = function(){
+                this.weightApple = weightApple;
+            }
+        }
+        var Adam = new Human("Adam","Male",65000);
+        var Eva = new Human("Eva","Female",45000);
+        var apple = new Apple(200);
+        
+        document.write("Adam said: " + Adam.setSay("Helloo!"));
+        document.write("<br>Eva said: " + Eva.setSay("Hiii"));
+
+        document.write("<br><br>Adam ăn táo: <br>Quả táo còn " + apple.decrease(10) + " gam <br>Cân nặng của Adam là: " + Adam.setEat(apple.weightApple, 10));
+        document.write("<br><br>Eva ăn táo: <br>Quả táo còn " + apple.decrease(10) + " gam <br>Cân nặng của Eva là:" + Eva.setEat(apple.weightApple, 10));
+        document.write("<br><br>Adam ăn táo: <br>Quả táo còn " + apple.decrease(20) + " gam <br>Cân nặng của Adam là: " + Adam.setEat(apple.weightApple, 20));
+        document.write("<br><br>Eva ăn táo: <br>Quả táo còn " + apple.decrease(20) + " gam <br>Cân nặng của Eva là: " + Eva.setEat(apple.weightApple, 20));
+    </script>
+</body>
+</html>
